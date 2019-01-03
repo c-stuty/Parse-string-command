@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     ptr = strtok(command, " ");
     if(ptr == NULL)
     {
-        printf("err: ptr == NULL\n");
+        printf("err: ptr == NULL, line = %d\n\n", __LINE__);
         return -1;
     }
     debug("cmd[0] = %s\n", ptr);
@@ -40,10 +40,21 @@ int main(int argc, char* argv[])
     if(0 == strcmp(ptr, "i2c"))
     {
         ptr = strtok(NULL, " ");
+        if(ptr == NULL)
+        {
+            printf("err: ptr == NULL, line = %d\n\n", __LINE__);
+            return -1;
+        }
         debug("cmd[1] = %s\n", ptr);
+
         if(0 == strcmp(ptr, "read"))
         {
             ptr = strtok(NULL, " ");
+            if(ptr == NULL)
+            {
+                printf("err: ptr == NULL, line = %d\n\n", __LINE__);
+                return -1;
+            }
             reg = (unsigned char)strtoll(ptr, NULL, 0);
             debug("cmd[2] = %s\n", ptr);
 
@@ -53,10 +64,21 @@ int main(int argc, char* argv[])
         else if(0 == strcmp(ptr, "write"))
         {
             ptr = strtok(NULL, " ");
+            if(ptr == NULL)
+            {
+                printf("err: ptr == NULL, line = %d\n\n", __LINE__);
+                return -1;
+            }
             reg = (unsigned char)strtoll(ptr, NULL, 0);
             debug("cmd[2] = %s\n", ptr);
 
             ptr = strtok(NULL, " ");
+            if(ptr == NULL)
+            {
+                printf("err: ptr == NULL, line = %d\n\n", __LINE__);
+                return -1;
+            }
+
             data = (unsigned char)strtoll(ptr, NULL, 0);
             debug("cmd[3] = %s\n", ptr);
 

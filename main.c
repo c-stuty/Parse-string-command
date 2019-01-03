@@ -18,7 +18,9 @@ int main(int argc, char* argv[])
 
     if(argc != 2)
     {
-        printf("err: argc != 2\n");
+        printf("usage: ./app <command string>\n");
+        printf("eg   : ./app \"i2c read 0x45\"\n");
+        printf("eg   : ./app \"i2c write 0x45 0x33\"\n\n");
         return -1;
     }
 

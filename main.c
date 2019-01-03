@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // #define DEBUG 1
@@ -88,6 +89,16 @@ int main(int argc, char* argv[])
             printf("reg    = 0x%x(h), %u(d)\n", reg, reg);
             printf("data   = 0x%x(h), %u(d)\n", data, data);
         }
+        else
+        {
+            printf("err: command not support, line = %d\n\n", __LINE__);
+            return -1;
+        }
+    }
+    else
+    {
+        printf("err: command not support, line = %d\n\n", __LINE__);
+        return -1;
     }
 
     printf("\n");
